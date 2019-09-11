@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "1de0549e-5c0f-4536-81bf-be8b6152c332",
+		"name": "student-crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findStudentById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllStudents1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/all",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllStudents2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/all?pageNo=1&pageSize=3&sortBy=studentId",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"all"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "3"
+						},
+						{
+							"key": "sortBy",
+							"value": "studentId"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findStudentsByLastName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}?lastName=berberoglu",
+					"host": [
+						"{{localhost}}"
+					],
+					"query": [
+						{
+							"key": "lastName",
+							"value": "berberoglu"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createStudent",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"saveFirstName\",\n\t\"lastName\" : \"saveLastName\",\n\t\"email\": \"savedEmail@gmail.com\",\n\t\"studentNumber\": \"savedStudentNumber\"\n}"
+				},
+				"url": {
+					"raw": "{{localhost}}",
+					"host": [
+						"{{localhost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateStudent",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"updatedFirstName\",\n\t\"lastName\" : \"updatedLastName\",\n\t\"email\": \"updatedEmail@gmail.com\",\n\t\"studentNumber\": \"updatedStudentNumber\"\n}"
+				},
+				"url": {
+					"raw": "{{localhost}}/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteStudent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c00e2e8c-8510-47a1-ad9e-c2689852c83c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b32ff9a1-fec2-4791-b60c-eb644894675d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ef81d070-9800-4f8b-83c9-a306ecbeedc4",
+			"key": "localhost",
+			"value": "localhost:8080/student",
+			"type": "string"
+		}
+	]
+}
