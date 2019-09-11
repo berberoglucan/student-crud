@@ -10,6 +10,8 @@ public interface StudentService {
 	
 	List<StudentDto> findAllStudents(int pageNo, int pageSize, String sortBy);
 	
+	List<StudentDto> findStudentsByLastName(String lastName);
+	
 	StudentDto saveStudent(StudentDto studentDto);
 	
 	StudentDto updateStudent(String studentId, StudentDto studentDto);

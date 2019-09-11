@@ -2,8 +2,10 @@ package io.can.studentcrud.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -95,6 +97,16 @@ public class StudentServiceImpl implements StudentService {
 			throw new StudentNotFoundException("Student is not found with the given student id: " + id);
 		}
 		studentRepository.deleteById(id);
+	}
+
+	@Override
+	public List<StudentDto> findStudentsByLastName(String lastName) {
+		if(StringUtils.isEmpty(lastName)) {
+			throw new IllegalArgumentException("lastName parameter is not null or not empty");
+		}
+		lastName = lastName.trim().toLowerCase(new Locale("tr", "TR"));
+		List<Student> students = studentRepository.findStudentsByLastName(lastName);
+		return serviceUtil.mapAll(students, StudentDto.class);
 	}
 
 }

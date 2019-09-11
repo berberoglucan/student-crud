@@ -41,6 +41,12 @@ public class StudentController {
 		return ResponseEntity.ok(allStudents);
 
 	}
+	
+	@GetMapping
+	public ResponseEntity<List<StudentDto>> findStudentsByLastName(@RequestParam("lastName") final String lastName) {
+		List<StudentDto> students = studentService.findStudentsByLastName(lastName);
+		return ResponseEntity.ok(students);
+	}
 
 	@PostMapping
 	public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto student) {
@@ -56,7 +62,7 @@ public class StudentController {
 	}
 
 	@DeleteMapping(value = "/{studentId}")
-	public ResponseEntity<?> deleteMethodName(@PathVariable("studentId") String studentId) {
+	public ResponseEntity<?> deleteStudent(@PathVariable("studentId") String studentId) {
 		studentService.deleteStudent(studentId);
 		return ResponseEntity.ok().build();
 	}
